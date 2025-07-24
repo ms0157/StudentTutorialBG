@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מדריך לתלמיד - הבגרות הגמישה</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the body and general elements */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            direction: rtl; /* Set text direction to right-to-left */
+            text-align: right; /* Align text to the right */
+        }
+        /* Styling for tab buttons */
+        .tab-button {
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem 0.5rem 0 0;
+            font-weight: 600;
+            color: #4a5568;
+            background-color: #e2e8f0;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            white-space: nowrap; /* Prevent text wrapping in tabs */
+        }
+        /* Active state for tab buttons */
+        .tab-button.active {
+            background-color: #ffffff;
+            color: #2b6cb0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+        /* Styling for tab content area */
+        .tab-content {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 0 0.5rem 0.5rem 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-height: 60vh; /* Ensure content area is tall enough */
+        }
+        /* General heading styles - Changed to white */
+        .header-text h1, .header-text p {
+            color: #FFFFFF; /* Ensures header text is white */
+        }
+        /* Specific heading styles within content, not the main header */
+        .tab-content h2 {
+            color: #2d3748; /* Original color for content headings */
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .tab-content h3 {
+            color: #4a5568; /* Original color for sub-headings within content */
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        p, li {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        ul {
+            list-style-type: disc;
+            padding-right: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        strong {
+            font-weight: 700;
+        }
+        .info-box {
+            background-color: #ebf8ff;
+            border-right: 4px solid #3182ce;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+        <header class="bg-blue-600 text-white p-4 text-center rounded-t-lg header-text">
+            <p class="text-lg font-semibold mb-1">הרב תחומי למדעים ולאמנויות עמל חדרה</p>
+            <h1 class="text-3xl font-extrabold mb-2">מדריך לתלמיד: הבגרות הגמישה</h1>
+            <p class="text-lg opacity-90">הכלים והמיומנויות שלך</p>
+        </header>
+
+        <div class="p-4">
+            <!-- Tabs Navigation -->
+            <div class="flex border-b border-gray-200 overflow-x-auto pb-2 -mb-2">
+                <button class="tab-button active" data-tab-id="intro">ברוכים הבאים!</button>
+                <button class="tab-button" data-tab-id="whatIsBagrut">מהי הבגרות הגמישה?</button>
+                <button class="tab-button" data-tab-id="skills">מיומנויות חשובות</button>
+                <button class="tab-button" data-tab-id="system">התחברות וביצוע משימות</button>
+                <button class="tab-button" data-tab-id="grades">ציונים</button>
+                <button class="tab-button" data-tab-id="help">קבלת עזרה</button>
+            </div>
+
+            <!-- Tab Content Area -->
+            <div id="intro" class="tab-content">
+                <div class="space-y-4 text-gray-700">
+                    <p class="text-lg font-semibold text-blue-700">ברוך הבא/ה!</p>
+                    <p>מדריך זה נועד לסייע לך להכיר את המתווה החדש של הבגרות הגמישה ואת המערכת הדיגיטלית שבאמצעותה תבצע את המשימות. התפקיד שלך בתהליך הלמידה הוא משמעותי, וחשוב שתכיר את כל הכלים והתהליכים העומדים לרשותך.</p>
+                </div>
+            </div>
+
+            <div id="whatIsBagrut" class="tab-content hidden">
+                <div class="space-y-4 text-gray-700">
+                    <h3 class="text-xl font-bold text-blue-800">הציון הסופי שלך מורכב משלושה חלקים:</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><span class="font-semibold">35% בחינה חיצונית:</span> בחינה רגילה שתתקיים בבית הספר.</li>
+                        <li><span class="font-semibold">35% משימות מתוקשבות:</span> שתי משימות שתבצע/י במהלך השנה במערכת דיגיטלית. משימות אלו בוחנות מיומנויות ולא רק ידע.</li>
+                        <li><span class="font-semibold">30% הערכה פנימית:</span> ציון הניתן על ידי בית הספר שלך.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="skills" class="tab-content hidden">
+                <div class="space-y-4 text-gray-700">
+                    <p>המשימות המתוקשבות נועדו לעזור לך לפתח מיומנויות חשובות למאה ה-21. הנה כמה מהן:</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><span class="font-semibold">למידה עצמאית:</span> היכולת להציב לעצמך יעדים, לנהל את הזמן שלך ולחשוב על תהליך הלמידה.</li>
+                        <li><span class="font-semibold">פתרון בעיות:</span> חשיבה ביקורתית, ניתוח נתונים והסקת מסקנות, והצגת טיעונים בצורה משכנעת.</li>
+                        <li><span class="font-semibold">עבודת צוות ותקשורת:</span> היכולת לעבוד בשיתוף פעולה עם חברים לכיתה, לתקשר בצורה ברורה ולתת משוב.</li>
+                        <li><span class="font-semibold">אוריינות דיגיטלית:</span> שימוש יעיל ובטוח בכלים דיגיטליים, איתור והערכת מידע ממקורות שונים וכיבוד זכויות יוצרים.</li>
+                        <li><span class="font-semibold">יצירתיות ויוזמה:</span> פיתוח רעיונות חדשים, חשיבה מקורית ולקיחת יוזמה.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="system" class="tab-content hidden">
+                <div class="space-y-4 text-gray-700">
+                    <p>המשימות מתבצעות בפורטל דיגיטלי מיוחד של משרד החינוך. הנה מדריך פשוט כיצד להתחבר ולבצע את המשימות:</p>
+                    <ol class="list-decimal list-inside space-y-3">
+                        <li><span class="font-semibold">כניסה למערכת:</span> היכנס/י ל"בית הספר הוירטואלי" של משרד החינוך.</li>
+                        <li><span class="font-semibold">מסך ראשי:</span> לאחר הכניסה, תגיע/י למסך הראשי של הבגרות הגמישה. במסך זה תוכל/י לראות את כל המשימות שהמורה הקצה/ה לך, כולל שם המשימה, תאריך ההגשה והסטטוס שלה (האם היא פתוחה, בטיפול או הוגשה).</li>
+                        <li><span class="font-semibold">הכרות עם המשימה:</span> לאחר שתבחר/י במשימה, תגיע/י למסך המשימה. במסך זה תמצא/י את כל המידע שאתה צריך/ה:
+                            <ul class="list-disc list-inside mr-5 space-y-1">
+                                <li><span class="font-semibold">הסבר מפורט:</span> תיאור המשימה והדרישות.</li>
+                                <li><span class="font-semibold">סרטון הדרכה:</span> סרטון שמסביר את המשימה ואת אופן הביצוע.</li>
+                                <li><span class="font-semibold">שלבי המשימה:</span> פירוט השלבים השונים ותאריכי היעד לכל שלב.</li>
+                                <li><span class="font-semibold">אזורי עבודה:</span> חלקים שיתופיים (כל חברי הצוות יכולים לערוך) וחלקים אישיים (רק אתה יכול לערוך).</li>
+                            </ul>
+                        </li>
+                        <li><span class="font-semibold">שמירה והגשה:</span> במהלך העבודה על המשימה, חשוב מאוד ללחוץ על <span class="font-bold text-red-600">"שמירה"</span>, כיוון שהשמירה אינה אוטומטית. בסיום המשימה, עליך לבצע "הגשה". רק לאחר שכל חברי הצוות הגישו את המשימה, היא תועבר לבדיקת המורה.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div id="grades" class="tab-content hidden">
+                <div class="space-y-4 text-gray-700">
+                    <h3 class="text-xl font-bold text-blue-800">מה קורה אם לא מרוצים מהציון?</h3>
+                    <p>אם לא תהיה/י מרוצה מהציון שתקבל/י על שתי המשימות, תוכל/י לגשת לבחינה חיצונית על הנושאים של שתי המשימות גם יחד. לא ניתן לגשת לבחינה רק על נושא של משימה אחת.</p>
+                </div>
+            </div>
+
+            <div id="help" class="tab-content hidden">
+                <div class="space-y-6 text-gray-700">
+                    <p>אם אתה נתקל/ת בבעיה טכנית או שאלות בנוגע למשימה, תוכל/י לקבל עזרה:</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><span class="font-semibold">הודעות למורה:</span> בפינה השמאלית העליונה של המערכת תראה/י אייקון של בועת דיבור, המיועד להודעות אישיות מהתלמידים למורה.</li>
+                        <li><span class="font-semibold">הודעות מערכת:</span> אייקון הפעמון מיועד להודעות מערכת.</li>
+                        <li><span class="font-semibold">מוקד תמיכה ארצי:</span> מוקד שירות זמין למענה טלפוני.</li>
+                        <li><span class="font-semibold">טלפון:</span> 6552* או 073-3983960, שלוחה 9.</li>
+                        <li><span class="font-semibold">שעות פעילות:</span> ימים א'-ה' בין 7:30-18:00 וביום ו' בין 8:00-14:30.</li>
+                    </ul>
+
+                    <!-- AI Assistant Section -->
+                    <div class="mt-8 p-6 bg-blue-50 rounded-lg shadow-md border border-blue-200">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                            ✨ שאל את הבינה המלאכותית ✨
+                        </h3>
+                        <p class="mb-4 text-gray-600">
+                            יש לך שאלה כללית על הבגרות הגמישה, מיומנויות למידה, או כל נושא שקשור ללימודים?
+                            שאל/י כאן וקבל/י תשובה מיידית!
+                        </p>
+                        <textarea
+                            id="aiQuestion"
+                            class="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4 text-right"
+                            rows="4"
+                            placeholder="הקלד/י את שאלתך כאן..."
+                        ></textarea>
+                        <button
+                            id="askAIButton"
+                            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-300 ease-in-out flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            <span id="aiButtonText">שאל/י את הבינה המלאכותית ✨</span>
+                            <div id="aiSpinner" class="spinner hidden ml-3"></div>
+                        </button>
+
+                        <p id="aiError" class="text-red-600 mt-3 text-sm text-center hidden"></p>
+
+                        <div id="aiAnswerContainer" class="mt-5 p-4 bg-white border border-blue-300 rounded-md shadow-inner hidden">
+                            <h4 class="font-semibold text-blue-700 mb-2">תשובת הבינה המלאכותית:</h4>
+                            <p id="aiAnswer" class="text-gray-800 whitespace-pre-wrap"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle tab switching
+        function openTab(evt) {
+            // Get all elements with class="tab-content" and hide them
+            const tabContents = document.querySelectorAll(".tab-content");
+            tabContents.forEach(content => content.classList.add("hidden"));
+
+            // Get all elements with class="tab-button" and remove the "active" class
+            const tabButtons = document.querySelectorAll(".tab-button");
+            tabButtons.forEach(button => button.classList.remove("active"));
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            const tabId = evt.currentTarget.dataset.tabId;
+            document.getElementById(tabId).classList.remove("hidden");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Add event listeners to all tab buttons
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll(".tab-button");
+            tabButtons.forEach(button => {
+                button.addEventListener('click', openTab);
+            });
+
+            // Set the default active tab when the page loads
+            // Simulate a click on the first tab button
+            if (tabButtons.length > 0) {
+                tabButtons[0].click();
+            }
+
+            // AI Assistant Logic
+            const aiQuestionInput = document.getElementById('aiQuestion');
+            const askAIButton = document.getElementById('askAIButton');
+            const aiButtonText = document.getElementById('aiButtonText');
+            const aiSpinner = document.getElementById('aiSpinner');
+            const aiAnswerContainer = document.getElementById('aiAnswerContainer');
+            const aiAnswerDisplay = document.getElementById('aiAnswer');
+            const aiErrorDisplay = document.getElementById('aiError');
+
+            askAIButton.addEventListener('click', async () => {
+                const question = aiQuestionInput.value.trim();
+                if (!question) {
+                    aiErrorDisplay.textContent = 'אנא הזן שאלה לפני שליחה.';
+                    aiErrorDisplay.classList.remove('hidden');
+                    return;
+                }
+
+                // Reset previous states
+                aiAnswerDisplay.textContent = '';
+                aiAnswerContainer.classList.add('hidden');
+                aiErrorDisplay.classList.add('hidden');
+                askAIButton.disabled = true;
+                aiButtonText.textContent = 'טוען תשובה...';
+                aiSpinner.classList.remove('hidden');
+
+                try {
+                    const prompt = `השב לשאלה הבאה בנוגע לבגרות הגמישה או מיומנויות למידה, או כל נושא רלוונטי אחר לתלמידים, בצורה תמציתית וברורה: ${question}`;
+                    let chatHistory = [];
+                    chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // API key will be provided by the Canvas environment
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        aiAnswerDisplay.textContent = text;
+                        aiAnswerContainer.classList.remove('hidden');
+                    } else {
+                        aiErrorDisplay.textContent = 'אירעה שגיאה בקבלת התשובה מהבינה המלאכותית. אנא נסה שוב.';
+                        aiErrorDisplay.classList.remove('hidden');
+                        console.error('Unexpected API response structure:', result);
+                    }
+                } catch (error) {
+                    aiErrorDisplay.textContent = 'שגיאה בתקשורת עם השרת. אנא בדוק את חיבור האינטרנט ונסה שוב.';
+                    aiErrorDisplay.classList.remove('hidden');
+                    console.error('Error calling Gemini API:', error);
+                } finally {
+                    askAIButton.disabled = false;
+                    aiButtonText.textContent = 'שאל/י את הבינה המלאכותית ✨';
+                    aiSpinner.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
